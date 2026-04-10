@@ -1,132 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Rahman Wood Works | Master Craftsman</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #d4a373; /* Gold Accent */
+            --dark: #1a1a1a;
+            --white: #ffffff;
+        }
 
-<title>Abdul Rahman Wood Works</title>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: #fdfdfd; color: #333; scroll-behavior: smooth; }
 
-<style>
-body{font-family:sans-serif;margin:0;background:#f5f5f5;}
-header{background:#111;color:#fff;padding:15px;text-align:center;}
-section{padding:40px;text-align:center;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;}
-img{width:100%;height:200px;object-fit:cover;border-radius:10px;}
-button{padding:10px 20px;background:#111;color:#fff;border:none;margin:5px;cursor:pointer;}
-input{padding:10px;margin:10px;}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;padding:15px;border-radius:50%;}
-.admin{display:none;background:#fff;padding:20px;margin:20px;}
-</style>
+        /* HEADER */
+        header {
+            background: var(--dark);
+            color: var(--white);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary);
+        }
 
+        .logo { font-family: 'Oswald', sans-serif; font-size: 22px; letter-spacing: 1px; }
+        .logo span { color: var(--primary); }
+
+        /* HERO SECTION */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1470&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(35px, 6vw, 60px); margin-bottom: 10px; }
+        .hero p { font-size: 18px; opacity: 0.9; margin-bottom: 25px; }
+
+        .btn-main {
+            padding: 12px 35px;
+            background: var(--primary);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover { background: white; transform: scale(1.05); }
+
+        /* PORTFOLIO GRID */
+        section { padding: 60px 8%; }
+        h2 { text-align: center; font-family: 'Oswald', sans-serif; font-size: 32px; margin-bottom: 40px; text-transform: uppercase; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .work-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: white;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .work-item:hover img { transform: scale(1.1); }
+
+        .work-info {
+            padding: 15px;
+            background: white;
+            text-align: center;
+        }
+
+        .work-info h3 { font-size: 18px; color: var(--dark); }
+
+        /* CONTACT FORM */
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* ADMIN PANEL (Hidden) */
+        .admin-section { padding: 40px 8%; background: #eee; text-align: center; }
+        .admin-panel { display: none; margin-top: 20px; background: white; padding: 20px; border-radius: 10px; }
+
+        footer { background: var(--dark); color: white; text-align: center; padding: 30px; margin-top: 50px; }
+    </style>
 </head>
 
 <body>
 
-<header>
-<h2>Abdul Rahman Wood Works</h2>
-</header>
+    <header>
+        <div class="logo">Abdul Rahman <span>All Wood Works</span></div>
+    </header>
 
-<section>
-<h1>Luxury Woodwork</h1>
-<p>Kitchen | Wardrobe | Furniture Experts</p>
-<button onclick="sendWhatsApp()">Get Quote</button>
-</section>
+    <section class="hero">
+        <h1>Bespoke Wood Creations</h1>
+        <p>Premium Kitchens, Wardrobes, and Luxury Furniture</p>
+        <a href="https://wa.me/923187196942" class="btn-main">Get a Free Quote</a>
+    </section>
 
-<!-- PORTFOLIO -->
-<section>
-<h2>Our Work</h2>
-<div id="gallery" class="grid"></div>
-</section>
+    <section id="portfolio">
+        <h2>Our Latest Projects</h2>
+        <div id="gallery" class="grid">
+            <div class="work-item">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600&auto=format&fit=crop" alt="Kitchen">
+                <div class="work-info"><h3>Modern Modular Kitchen</h3></div>
+            </div>
+            <div class="work-item">
+                <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=600&auto=format&fit=crop" alt="Wardrobe">
+                <div class="work-info"><h3>Luxury Wall Wardrobe</h3></div>
+            </div>
+            <div class="work-item">
+                <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=600&auto=format&fit=crop" alt="Furniture">
+                <div class="work-info"><h3>Premium Sofa & TV Unit</h3></div>
+            </div>
+            <div class="work-item">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600&auto=format&fit=crop" alt="Bed">
+                <div class="work-info"><h3>Custom Master Bed</h3></div>
+            </div>
+        </div>
+    </section>
 
-<!-- CONTACT -->
-<section>
-<h2>Contact</h2>
-<input id="name" placeholder="Name">
-<input id="phone" placeholder="Phone">
-<button onclick="sendWhatsApp()">Send</button>
-</section>
+    <section style="background: #f4f4f4;">
+        <h2>Inquiry Form</h2>
+        <div class="contact-box">
+            <input id="name" type="text" placeholder="Your Full Name">
+            <input id="phone" type="text" placeholder="Phone Number / City">
+            <button class="btn-main" style="width: 100%; border: none; cursor: pointer;" onclick="sendWhatsApp()">Send to WhatsApp</button>
+        </div>
+    </section>
 
-<!-- ADMIN LOGIN -->
-<section>
-<h3>Admin Login</h3>
-<input id="pass" type="password" placeholder="Enter Password">
-<button onclick="login()">Login</button>
-</section>
+    <section class="admin-section">
+        <h3>Manage Gallery</h3>
+        <input id="pass" type="password" placeholder="Admin Password" style="max-width: 200px;">
+        <button onclick="login()" style="padding: 10px 20px; cursor: pointer;">Login</button>
 
-<!-- ADMIN PANEL -->
-<div id="adminPanel" class="admin">
-<h2>Upload Work</h2>
-<input type="file" onchange="addImage(event)">
-<button onclick="clearGallery()">Delete All</button>
-</div>
+        <div id="adminPanel" class="admin-panel">
+            <p>Upload New Project Image:</p><br>
+            <input type="file" onchange="addImage(event)">
+            <button onclick="clearGallery()" style="background: red; color: white; border: none; padding: 10px; margin-top: 10px;">Clear All Uploads</button>
+        </div>
+    </section>
 
-<div class="whatsapp" onclick="sendWhatsApp()">💬</div>
+    <div class="whatsapp" onclick="sendWhatsApp()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WA">
+    </div>
 
-<script>
+    <footer>
+        <p>Abdul Rahman All Wood Works | Mandi Bahauddin, Pakistan</p>
+        <p style="opacity: 0.5; font-size: 12px; margin-top: 10px;">&copy; 2026 Developed by Mirza Zawar</p>
+    </footer>
 
-/* LOAD SAVED IMAGES */
-let gallery=document.getElementById("gallery");
+    <script>
+        // WhatsApp Function
+        function sendWhatsApp(){
+            let name = document.getElementById("name").value || "Client";
+            let phone = document.getElementById("phone").value || "Not provided";
+            let text = `Salam Abdul Rahman, I need a quote.%0AName: ${name}%0ADetail/City: ${phone}`;
+            window.open(`https://wa.me/923187196942?text=${text}`);
+        }
 
-function loadImages(){
-let images=JSON.parse(localStorage.getItem("images")||"[]");
-gallery.innerHTML="";
-images.forEach((src,i)=>{
-gallery.innerHTML+=`
-<div>
-<img src="${src}">
-<button onclick="deleteImage(${i})">Delete</button>
-</div>`;
-});
-}
+        // Admin Login
+        function login(){
+            let pass = document.getElementById("pass").value;
+            if(pass === "1234"){
+                document.getElementById("adminPanel").style.display = "block";
+                alert("Welcome Boss!");
+            } else {
+                alert("Access Denied!");
+            }
+        }
 
-loadImages();
+        // Image Handling (Saved in browser)
+        function addImage(event){
+            let reader = new FileReader();
+            reader.onload = function(){
+                let gallery = document.getElementById("gallery");
+                let div = document.createElement("div");
+                div.className = "work-item";
+                div.innerHTML = `<img src="${reader.result}"><div class="work-info"><h3>New Project</h3></div>`;
+                gallery.appendChild(div);
+                
+                // Saving to local storage
+                let images = JSON.parse(localStorage.getItem("user_works") || "[]");
+                images.push(reader.result);
+                localStorage.setItem("user_works", JSON.stringify(images));
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
 
-/* ADD IMAGE */
-function addImage(event){
-let reader=new FileReader();
-reader.onload=function(){
-let images=JSON.parse(localStorage.getItem("images")||"[]");
-images.push(reader.result);
-localStorage.setItem("images",JSON.stringify(images));
-loadImages();
-}
-reader.readAsDataURL(event.target.files[0]);
-}
+        // Load saved images on start
+        window.onload = function(){
+            let saved = JSON.parse(localStorage.getItem("user_works") || "[]");
+            let gallery = document.getElementById("gallery");
+            saved.forEach(src => {
+                let div = document.createElement("div");
+                div.className = "work-item";
+                div.innerHTML = `<img src="${src}"><div class="work-info"><h3>Our Craft</h3></div>`;
+                gallery.appendChild(div);
+            });
+        }
 
-/* DELETE SINGLE */
-function deleteImage(index){
-let images=JSON.parse(localStorage.getItem("images")||"[]");
-images.splice(index,1);
-localStorage.setItem("images",JSON.stringify(images));
-loadImages();
-}
-
-/* DELETE ALL */
-function clearGallery(){
-localStorage.removeItem("images");
-loadImages();
-}
-
-/* ADMIN LOGIN */
-function login(){
-let pass=document.getElementById("pass").value;
-if(pass==="1234"){
-document.getElementById("adminPanel").style.display="block";
-alert("Login Success");
-}else{
-alert("Wrong Password");
-}
-}
-
-/* WHATSAPP */
-function sendWhatsApp(){
-let name=document.getElementById("name").value || "";
-let phone=document.getElementById("phone").value || "";
-let text=`Name: ${name}%0APhone: ${phone}`;
-window.open(`https://wa.me/923187196942?text=${text}`);
-}
-
-</script>
+        function clearGallery(){
+            if(confirm("Delete all manual uploads?")){
+                localStorage.removeItem("user_works");
+                location.reload();
+            }
+        }
+    </script>
 
 </body>
 </html>
