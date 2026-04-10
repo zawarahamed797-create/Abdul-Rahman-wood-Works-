@@ -4,151 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mirza Zawar Woodworks | Premium Furniture</title>
-
-<meta name="description" content="Best carpenter in Pakistan. Kitchen, wardrobe & furniture expert.">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+<title>Abdul Rahman Wood Works</title>
 
 <style>
-:root{
---dark:#1a1a1a;
---gold:#c8a96a;
---light:#f5f5f5;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-font-family:Poppins;
-background:var(--light);
-}
-
-/* HEADER */
-header{
-display:flex;
-justify-content:space-between;
-padding:15px 8%;
-background:var(--dark);
-color:white;
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-.logo{font-size:22px;font-weight:bold;}
-.logo span{color:var(--gold);}
-
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-}
-
-nav a:hover{color:var(--gold);}
-
-/* HERO */
-.hero{
-height:90vh;
-background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85');
-background-size:cover;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-color:white;
-text-align:center;
-}
-
-.hero h1{
-font-size:60px;
-}
-
-.hero p{
-margin:15px 0;
-}
-
-.btn{
-background:var(--gold);
-padding:12px 30px;
-text-decoration:none;
-color:black;
-font-weight:bold;
-}
-
-/* SECTION */
-section{padding:70px 8%;text-align:center;}
-
-h2{margin-bottom:40px;}
-
-/* SERVICES */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-background:white;
-padding:30px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-transition:.3s;
-}
-
-.card:hover{transform:translateY(-10px);}
-
-/* PORTFOLIO */
-.portfolio img{
-width:100%;
-height:250px;
-object-fit:cover;
-border-radius:10px;
-transition:.3s;
-}
-
-.portfolio img:hover{
-transform:scale(1.05);
-}
-
-/* TESTIMONIAL */
-.testimonial{
-background:white;
-padding:20px;
-margin-top:10px;
-}
-
-/* CONTACT */
-input,textarea{
-width:100%;
-padding:10px;
-margin:10px 0;
-}
-
-button{
-background:var(--dark);
-color:white;
-padding:10px;
-border:none;
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25d366;
-padding:15px;
-border-radius:50%;
-}
-
-/* FOOTER */
-footer{
-background:var(--dark);
-color:white;
-padding:20px;
-text-align:center;
-}
+body{font-family:sans-serif;margin:0;background:#f5f5f5;}
+header{background:#111;color:#fff;padding:15px;text-align:center;}
+section{padding:40px;text-align:center;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;}
+img{width:100%;height:200px;object-fit:cover;border-radius:10px;}
+button{padding:10px 20px;background:#111;color:#fff;border:none;margin:5px;cursor:pointer;}
+input{padding:10px;margin:10px;}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;padding:15px;border-radius:50%;}
+.admin{display:none;background:#fff;padding:20px;margin:20px;}
 </style>
 
 </head>
@@ -156,71 +23,110 @@ text-align:center;
 <body>
 
 <header>
-<div class="logo">Mirza <span>Zawar</span></div>
-<nav>
-<a href="#">Home</a>
-<a href="#services">Services</a>
-<a href="#portfolio">Work</a>
-<a href="#contact">Contact</a>
-</nav>
+<h2>Abdul Rahman Wood Works</h2>
 </header>
 
-<!-- HERO -->
-<section class="hero">
+<section>
 <h1>Luxury Woodwork</h1>
 <p>Kitchen | Wardrobe | Furniture Experts</p>
-<a href="https://wa.me/923187196942" class="btn">Get Quote</a>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-<h2>Our Services</h2>
-<div class="grid">
-<div class="card">Custom Furniture</div>
-<div class="card">Modern Kitchens</div>
-<div class="card">Wardrobes</div>
-</div>
+<button onclick="sendWhatsApp()">Get Quote</button>
 </section>
 
 <!-- PORTFOLIO -->
-<section id="portfolio" class="portfolio">
-<h2>Our Work</h2>
-<div class="grid">
-<img src="https://images.unsplash.com/photo-1582582494700-9c0f77fa6f8a">
-<img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4">
-<img src="https://images.unsplash.com/photo-1598300056393-4aac492f4344">
-</div>
-</section>
-
-<!-- TESTIMONIAL -->
 <section>
-<h2>Client Reviews</h2>
-<div class="testimonial">"Best carpenter! Highly recommended"</div>
-<div class="testimonial">"Amazing kitchen work quality"</div>
+<h2>Our Work</h2>
+<div id="gallery" class="grid"></div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-<h2>Contact Us</h2>
-
-<form>
-<input type="text" placeholder="Your Name">
-<input type="tel" placeholder="Phone Number">
-<textarea placeholder="Your Message"></textarea>
-<button>Send</button>
-</form>
-
-<p>📞 03187196942</p>
-<p>📍 Pakistan</p>
-
+<section>
+<h2>Contact</h2>
+<input id="name" placeholder="Name">
+<input id="phone" placeholder="Phone">
+<button onclick="sendWhatsApp()">Send</button>
 </section>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/923187196942" class="whatsapp">💬</a>
+<!-- ADMIN LOGIN -->
+<section>
+<h3>Admin Login</h3>
+<input id="pass" type="password" placeholder="Enter Password">
+<button onclick="login()">Login</button>
+</section>
 
-<footer>
-<p>© 2026 Mirza Zawar Woodworks</p>
-</footer>
+<!-- ADMIN PANEL -->
+<div id="adminPanel" class="admin">
+<h2>Upload Work</h2>
+<input type="file" onchange="addImage(event)">
+<button onclick="clearGallery()">Delete All</button>
+</div>
+
+<div class="whatsapp" onclick="sendWhatsApp()">💬</div>
+
+<script>
+
+/* LOAD SAVED IMAGES */
+let gallery=document.getElementById("gallery");
+
+function loadImages(){
+let images=JSON.parse(localStorage.getItem("images")||"[]");
+gallery.innerHTML="";
+images.forEach((src,i)=>{
+gallery.innerHTML+=`
+<div>
+<img src="${src}">
+<button onclick="deleteImage(${i})">Delete</button>
+</div>`;
+});
+}
+
+loadImages();
+
+/* ADD IMAGE */
+function addImage(event){
+let reader=new FileReader();
+reader.onload=function(){
+let images=JSON.parse(localStorage.getItem("images")||"[]");
+images.push(reader.result);
+localStorage.setItem("images",JSON.stringify(images));
+loadImages();
+}
+reader.readAsDataURL(event.target.files[0]);
+}
+
+/* DELETE SINGLE */
+function deleteImage(index){
+let images=JSON.parse(localStorage.getItem("images")||"[]");
+images.splice(index,1);
+localStorage.setItem("images",JSON.stringify(images));
+loadImages();
+}
+
+/* DELETE ALL */
+function clearGallery(){
+localStorage.removeItem("images");
+loadImages();
+}
+
+/* ADMIN LOGIN */
+function login(){
+let pass=document.getElementById("pass").value;
+if(pass==="1234"){
+document.getElementById("adminPanel").style.display="block";
+alert("Login Success");
+}else{
+alert("Wrong Password");
+}
+}
+
+/* WHATSAPP */
+function sendWhatsApp(){
+let name=document.getElementById("name").value || "";
+let phone=document.getElementById("phone").value || "";
+let text=`Name: ${name}%0APhone: ${phone}`;
+window.open(`https://wa.me/923187196942?text=${text}`);
+}
+
+</script>
 
 </body>
 </html>
