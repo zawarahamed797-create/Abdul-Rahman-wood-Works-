@@ -1,237 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdul Rahman All Wood Works | Premium Craftsmanship</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --wood-dark: #2c1b12; /* Deep Wood Color */
-            --gold: #d4a373;      /* Accent Gold */
-            --light: #f4f1ea;     /* Warm White */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<title>Mirza Zawar Woodworks | Premium Furniture</title>
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--light);
-            color: #333;
-        }
+<meta name="description" content="Best carpenter in Pakistan. Kitchen, wardrobe & furniture expert.">
 
-        /* 1. Navigation */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: var(--wood-dark);
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 3px solid var(--gold);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 
-        .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 24px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+<style>
+:root{
+--dark:#1a1a1a;
+--gold:#c8a96a;
+--light:#f5f5f5;
+}
 
-        .logo span { color: var(--gold); }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        /* Logo Animation */
-        .logo:hover span {
-            display: inline-block;
-            animation: woodShake 0.5s ease-in-out;
-        }
+body{
+font-family:Poppins;
+background:var(--light);
+}
 
-        @keyframes woodShake {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(5deg); }
-            75% { transform: rotate(-5deg); }
-            100% { transform: rotate(0deg); }
-        }
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+padding:15px 8%;
+background:var(--dark);
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+}
 
-        .nav-links { display: flex; list-style: none; }
-        .nav-links li { margin-left: 25px; }
-        .nav-links a { text-decoration: none; color: white; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--gold); }
+.logo{font-size:22px;font-weight:bold;}
+.logo span{color:var(--gold);}
 
-        /* 2. Hero Section */
-        .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-        }
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
 
-        .hero h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(40px, 8vw, 75px);
-            text-transform: uppercase;
-            line-height: 1;
-        }
+nav a:hover{color:var(--gold);}
 
-        .hero p {
-            font-size: 18px;
-            margin: 20px 0;
-            max-width: 600px;
-            color: #ccc;
-        }
+/* HERO */
+.hero{
+height:90vh;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85');
+background-size:cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
+}
 
-        .cta-btn {
-            background: var(--gold);
-            color: var(--wood-dark);
-            padding: 15px 40px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-radius: 2px;
-            transition: 0.4s;
-        }
+.hero h1{
+font-size:60px;
+}
 
-        .cta-btn:hover { background: white; transform: scale(1.05); }
+.hero p{
+margin:15px 0;
+}
 
-        /* 3. Services Section */
-        .services {
-            padding: 80px 8%;
-            text-align: center;
-        }
+.btn{
+background:var(--gold);
+padding:12px 30px;
+text-decoration:none;
+color:black;
+font-weight:bold;
+}
 
-        .services h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 35px;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-        }
+/* SECTION */
+section{padding:70px 8%;text-align:center;}
 
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+h2{margin-bottom:40px;}
 
-        .service-card {
-            background: white;
-            padding: 40px 20px;
-            border-bottom: 5px solid var(--wood-dark);
-            transition: 0.4s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+/* SERVICES */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-        }
+.card{
+background:white;
+padding:30px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s;
+}
 
-        .service-card h3 {
-            font-family: 'Oswald', sans-serif;
-            margin-bottom: 15px;
-            color: var(--wood-dark);
-        }
+.card:hover{transform:translateY(-10px);}
 
-        /* 4. WhatsApp Button Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
+/* PORTFOLIO */
+.portfolio img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+transition:.3s;
+}
 
-        /* 5. Footer */
-        footer {
-            background: var(--wood-dark);
-            color: white;
-            padding: 50px 8%;
-            text-align: center;
-        }
+.portfolio img:hover{
+transform:scale(1.05);
+}
 
-        .footer-info { margin-bottom: 20px; color: var(--gold); }
+/* TESTIMONIAL */
+.testimonial{
+background:white;
+padding:20px;
+margin-top:10px;
+}
 
-        /* Mobile View Adjustment */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 45px; }
-        }
-    </style>
+/* CONTACT */
+input,textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+button{
+background:var(--dark);
+color:white;
+padding:10px;
+border:none;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+padding:15px;
+border-radius:50%;
+}
+
+/* FOOTER */
+footer{
+background:var(--dark);
+color:white;
+padding:20px;
+text-align:center;
+}
+</style>
+
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">Abdul Rahman <span>All Wood Works</span></div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#services">Our Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+<div class="logo">Mirza <span>Zawar</span></div>
+<nav>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#portfolio">Work</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
 
-    <section class="hero">
-        <h1>Quality Woodwork</h1>
-        <p>Custom Furniture, Modular Kitchens, and High-End Interior Solutions. We turn wood into Art.</p>
-        <a href="https://wa.me/YOUR_NUMBER_HERE" class="cta-btn">Request a Quote</a>
-    </section>
+<!-- HERO -->
+<section class="hero">
+<h1>Luxury Woodwork</h1>
+<p>Kitchen | Wardrobe | Furniture Experts</p>
+<a href="https://wa.me/923187196942" class="btn">Get Quote</a>
+</section>
 
-    <section id="services" class="services">
-        <h2>What We Offer</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <h3>Custom Furniture</h3>
-                <p>Beds, Sofas, and Dining Tables crafted with premium Sheesham and Oak wood.</p>
-            </div>
-            <div class="service-card">
-                <h3>Modern Kitchens</h3>
-                <p>L-shaped, U-shaped, and Island modular kitchens with PVC and MDF finishes.</p>
-            </div>
-            <div class="service-card">
-                <h3>Interior Paneling</h3>
-                <p>Wall paneling, wooden ceilings, and office workstations designed for efficiency.</p>
-            </div>
-        </div>
-    </section>
+<!-- SERVICES -->
+<section id="services">
+<h2>Our Services</h2>
+<div class="grid">
+<div class="card">Custom Furniture</div>
+<div class="card">Modern Kitchens</div>
+<div class="card">Wardrobes</div>
+</div>
+</section>
 
-    <a href="https://wa.me/YOUR_NUMBER_HERE" class="whatsapp-float">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
-    </a>
+<!-- PORTFOLIO -->
+<section id="portfolio" class="portfolio">
+<h2>Our Work</h2>
+<div class="grid">
+<img src="https://images.unsplash.com/photo-1582582494700-9c0f77fa6f8a">
+<img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4">
+<img src="https://images.unsplash.com/photo-1598300056393-4aac492f4344">
+</div>
+</section>
 
-    <footer id="contact">
-        <div class="footer-info">
-            <h3>Abdul Rahman All Wood Works</h3>
-            <p>Master Carpenter & Interior Designer</p>
-        </div>
-        <p>Contact: +92 300 0000000 | Location: Mandi Bahauddin, Pakistan</p>
-        <p style="margin-top: 30px; font-size: 12px; opacity: 0.6;">&copy; 2026 Developed by Mirza Zawar</p>
-    </footer>
+<!-- TESTIMONIAL -->
+<section>
+<h2>Client Reviews</h2>
+<div class="testimonial">"Best carpenter! Highly recommended"</div>
+<div class="testimonial">"Amazing kitchen work quality"</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Us</h2>
+
+<form>
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<textarea placeholder="Your Message"></textarea>
+<button>Send</button>
+</form>
+
+<p>📞 03187196942</p>
+<p>📍 Pakistan</p>
+
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/923187196942" class="whatsapp">💬</a>
+
+<footer>
+<p>© 2026 Mirza Zawar Woodworks</p>
+</footer>
 
 </body>
 </html>
-              
